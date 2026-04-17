@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-bg: #f3f4f6;
+  --color-brand-card: #ffffff;
+  --color-brand-accent: #2563eb;
+  --color-brand-sidebar: #1e293b;
+  --color-brand-border: #e2e8f0;
+  --color-brand-text-main: #1e293b;
+  --color-brand-text-muted: #64748b;
+}
+
+body {
+  @apply antialiased bg-brand-bg text-brand-text-main;
+  font-family: "Cairo", sans-serif;
+}
+
+.rtl {
+  direction: rtl;
+}
+
+/* Bento Card Base Class */
+.bento-card {
+  @apply bg-brand-card rounded-[16px] border border-brand-border p-5 shadow-sm transition-all duration-300;
+}
+
+.bento-card:hover {
+  @apply shadow-md border-brand-accent/20;
+}
+
+@layer utilities {
+  .no-print {
+    @media print {
+      display: none !important;
+    }
+  }
+
+  .print-only {
+    display: none;
+    @media print {
+      display: block !important;
+    }
+  }
+}
+
+/* Custom Scrollbar for Bento Look */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
